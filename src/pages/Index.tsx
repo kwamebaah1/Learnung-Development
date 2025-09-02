@@ -18,7 +18,7 @@ const Index = () => {
         <Menu className="h-5 w-5" />
       </button>
 
-      {/* Sidebar - Fixed positioning for desktop */}
+      {/* Sidebar */}
       <div className="hidden lg:block fixed left-0 top-0 h-full z-40">
         <FleetSidebar isOpen={true} onClose={() => {}} />
       </div>
@@ -34,7 +34,7 @@ const Index = () => {
           {/* Vehicle Details */}
           <VehicleDetails />
           
-          {/* Bottom Section - Stack on mobile, side-by-side on desktop */}
+          {/* Bottom Section */}
           <div className="grid lg:grid-cols-2 gap-4 lg:gap-6 p-3 lg:p-6 items-stretch">
             {/* Left Column - Routes */}
             <div className="lg:pr-6 lg:border-r lg:border-gray-200 h-full">

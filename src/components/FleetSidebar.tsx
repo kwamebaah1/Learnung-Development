@@ -1,8 +1,14 @@
-import { Search, LayoutDashboard, BellDot, Star, Truck, Users, Home, MessageSquare, Settings, Plus, AlertCircle, ChevronDown, ChevronUp, X } from 'lucide-react';
+import { Search, LayoutDashboard, BellDot, Star, 
+  Truck, Users, Home, MessageSquare, Settings, 
+  Plus, AlertCircle, ChevronDown, ChevronUp, X 
+} from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { useState } from 'react';
+import { favoriteDrivers } from './data/favoriteDrivers';
+import { trucks } from './data/trucks';
+import { vans } from './data/vans';
 
 const FleetSidebar = ({ isOpen, onClose }) => {
   const [expandedSections, setExpandedSections] = useState({
@@ -27,115 +33,6 @@ const FleetSidebar = ({ isOpen, onClose }) => {
     { icon: MessageSquare, active: false },
     { icon: Settings, active: false },
     { icon: BellDot, active: false },
-  ];
-
-  const favoriteDrivers = [
-    {
-      name: "Nolan Dokidis",
-      role: "Mercedes-Benz Sprinter",
-      status: "ON THE WAY",
-      avatar: "/images/user-2.jpg",
-      initials: "ND"
-    },
-    {
-      name: "Ahmad Mango",
-      role: "Volkswagen Transporter",
-      status: "LOADING",
-      avatar: "/images/user-3.jpg",
-      initials: "AM"
-    },
-    {
-      name: "James Lubin",
-      role: "Volkswagen Transporter",
-      status: "ON THE WAY",
-      avatar: "/images/user-1.jpg",
-      initials: "JL"
-    },
-    {
-      name: "Talan Dorwart",
-      role: "Mercedes-Benz Metris",
-      status: "WAITING",
-      avatar: "/images/user-4.jpg",
-      initials: "TD",
-      hasAlert: true
-    }
-  ];
-
-  const trucks = [
-    {
-      name: "Jakob Vetrovs",
-      role: "Volvo FL",
-      status: "ON THE WAY",
-      avatar: "/images/user-5.jpg",
-      initials: "JV"
-    },
-    {
-      name: "Zain Vetrovs",
-      role: "Mercedes-Benz Atego",
-      status: "WAITING",
-      avatar: "/images/user-6.jpg",
-      initials: "ZV",
-      hasAlert: true
-    },
-    {
-      name: "Jaylan Rhiel Madsen",
-      role: "Volvo FL",
-      status: "ON THE WAY",
-      avatar: "/images/user-11.jpg",
-      initials: "JM"
-    },
-    {
-      name: "Gustavo Torff",
-      role: "Volvo FH",
-      status: "UNLOADING",
-      avatar: "/images/user-8.jpg",
-      initials: "GT"
-    },
-    {
-      name: "Jaylen Botosh",
-      role: "Man TGL B 190 4x2 BL CH",
-      status: "LOADING",
-      avatar: "/images/user-9.jpg",
-      initials: "JB"
-    },
-    {
-      name: "Marcus Dokidis",
-      role: "Man TGL B 190 4x2 BL CH",
-      status: "ON THE WAY",
-      avatar: "/images/user-10.jpg",
-      initials: "MD"
-    }
-  ];
-
-  const vans = [
-    {
-      name: "Tiana Westervelt",
-      role: "Volkswagen Transporter",
-      status: "LOADING",
-      avatar: "/images/user-7.jpg",
-      initials: "TW"
-    },
-    {
-      name: "Zain Korsgaard",
-      role: "Mercedes-Benz Sprinter",
-      status: "ON THE WAY",
-      avatar: "/images/user-12.jpg",
-      initials: "ZK"
-    },
-    {
-      name: "Wilson Dokidis",
-      role: "Mercedes-Benz Metris",
-      status: "ON THE WAY",
-      avatar: "/images/user-13.jpg",
-      initials: "WD"
-    },
-    {
-      name: "Jaxson Donin",
-      role: "Volkswagen Transporter",
-      status: "ON THE WAY",
-      avatar: "/images/user-14.jpg",
-      initials: "JD"
-    }
   ];
 
   const StatusIndicator = ({ status, hasAlert = false }) => {
@@ -190,7 +87,7 @@ const FleetSidebar = ({ isOpen, onClose }) => {
 
   return (
     <>
-      {/* Mobile overlay - only show when sidebar is open */}
+      {/* Mobile overlay */}
       {isOpen && (
         <div 
           className="fixed inset-0 bg-black bg-opacity-50 z-40 lg:hidden"
@@ -235,7 +132,7 @@ const FleetSidebar = ({ isOpen, onClose }) => {
 
         {/* Content Section */}
         <div className="w-64 bg-white h-full flex flex-col border-l border-gray-200 relative">
-          {/* Close button for mobile - only show when sidebar is open on mobile */}
+          {/* Close button for mobile */}
           {isOpen && (
             <button 
               onClick={onClose}
